@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 
 void main() {
-  runApp(MyApp());
+  runApp(MyApp()); 
 }
 
  
@@ -72,9 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/3.png'),
+              Image.asset('assets/3.png', height: 70.0,),
               // Icon(Icons.supervised_user_circle, color: Colors.white70, size: 120,),
-               Text('Login', style: Theme.of(context).textTheme.headline3 ),
+               Text('Iniciar sesion', style: Theme.of(context).textTheme.headline4 , ),
                
                 SizedBox( height: 50 ),
                

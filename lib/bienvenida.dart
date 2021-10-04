@@ -17,7 +17,7 @@ class _UserNewState extends State<UserNew> {
     return MaterialApp(
       title: 'Datos del Usuario',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
+        primarySwatch: Colors.purple,
       ),
       home: Bienvenida(),
     );
