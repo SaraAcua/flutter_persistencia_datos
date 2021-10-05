@@ -114,7 +114,7 @@ void initState() {
               
                              decoration: InputDecoration(
                                icon: Icon(Icons.manage_accounts_rounded , color: Colors.black),
-                                labelText: 'Color : ',
+                                labelText: 'Acceso : ',
                               ),
                           ) ,
 

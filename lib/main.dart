@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:ejemplo8_shared_perefences/bienvenida.dart';
 import 'package:ejemplo8_shared_perefences/login.dart';
 import 'package:ejemplo8_shared_perefences/peticiones.dart';
@@ -71,30 +73,95 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: EdgeInsets.all(50),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset('assets/3.png', height: 70.0,),
+            children: <Widget>[
+             // Image.asset('assets/3.png', height: 70.0,),
+                SizedBox( height: 20 ),
               // Icon(Icons.supervised_user_circle, color: Colors.white70, size: 120,),
-               Text('Iniciar sesion', style: Theme.of(context).textTheme.headline4 , ),
-               
+               Text('Instagram', 
+               style: TextStyle(fontFamily: 'Billabong',
+               fontSize: 70, 
+               color: Colors.white),),
+
                 SizedBox( height: 50 ),
+
+              TextField(
+               controller: usuarioTextController,
+                decoration: InputDecoration(
+                 filled: true,
+                 fillColor: Colors.white24,
+                  hintText: "Nombre el Usuario",
+                hintStyle: TextStyle(color:Colors.white54,),
+                 
+                border: OutlineInputBorder(
+                 
+                   borderSide: BorderSide.none,
+                    borderRadius:BorderRadius.circular(10),
+                  
+                )
+                
+                
+
+                ),
+                
                
-              TextField(
-                
-                
-                controller: usuarioTextController,
-                decoration: InputDecoration(hintText: "Digite el Usuario"),
               ),
+               SizedBox( height: 10 ),
               TextField(
+                
                 controller: clave,
                 obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Digite la Contraseña",
+                keyboardType: TextInputType.number,
+               decoration: InputDecoration(
+                 filled: true,
+                 fillColor: Colors.white24,
+                  hintText: "Contraseña",
+                hintStyle: TextStyle(color:Colors.white54,), 
+                border: OutlineInputBorder(
+                  
+                  borderSide: BorderSide.none,
+                    borderRadius:BorderRadius.circular(10),
+                  
+                  
+                )
+
                 ),
+               
               ),
               SizedBox(
                 height: 10,
               ),
-              IconButton(
+              SizedBox(height: 20.0),
+                    Container(
+                      
+                      
+                      width: 250.0,
+                      child: FlatButton(
+                        onPressed: () async {
+
+// consultarusuarios();
+
+                 await fecthLogin(http.Client(), usuarioTextController.text, clave.text);
+                 //consultarusuario();
+                  //usuario = await consultarusuario();
+                 setState(() {});
+                  Navigator.push(
+                context,
+                 MaterialPageRoute(builder: (context) => UserNew()), 
+                 );
+                        },
+                        
+                        color: Colors.white10,
+                        padding: EdgeInsets.all(10.0),
+                        child: Text(
+                          'Iniciar sesiòn',
+                          style: TextStyle(
+                            color: Colors.white54,
+                            fontSize: 18.0,
+                          ),
+                        ),
+                      ),
+                    ),
+              /*IconButton(
                 icon: Icon(Icons.login),
                 onPressed: () async { 
                 // consultarusuarios();
@@ -110,11 +177,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
 
 
-              ),
+              ),*/
               SizedBox(
                 height: 20,
               ),
-              Text('Usuario Guardardo' + (usuario?.usuario??'  no autenticado'))
+              Text('Usuario Guardardo' + (usuario?.estado??'  no autenticado'))
             ],
           ),
         ),
